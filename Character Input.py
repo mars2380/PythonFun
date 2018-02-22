@@ -1,11 +1,15 @@
-#name = input("Give me your name: ")
-# print("Your name is " + name)
+import datetime
+now = datetime.datetime.now()
+year = now.year
+
+name = input("Give me your name: ")
+print("Your name is " + name)
 
 age = int(input("Enter your age: "))
 print("Your age is " + str(age))
 
-year = str((2014 - age)+100)
-print(name + " will be 100 years old in the year " + year)
+oldyear = str((year - age)+100)
+print(name + " will be 100 years old in the year " + oldyear)
 
 print("Were " + "wolf")
 print("Door " + "man")
