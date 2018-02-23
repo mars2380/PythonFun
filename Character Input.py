@@ -5,13 +5,18 @@ year = now.year
 name = input("Give me your name: ")
 print("Your name is " + name)
 
-age = int(input("Enter your age: "))
-#if age.is_integer():
-#    print(fff)
+valid_input = False
+while not valid_input:
+    age = (input("Enter your age: "))
+    try:
+        val = int(age)
+        valid_input = True
+    except ValueError:
+        print("That's not a correct age!")
 
-print("Your age is " + str(age))
+print("Your age is " + str(val))
 
-oldyear = str((year - age)+100)
+oldyear = str((year - val)+100)
 print(name + " will be 100 years old in the year " + oldyear)
 
 # Some shit test
@@ -22,10 +27,3 @@ def shit ():
     print(str(4) + " chan")
     print(4 * "test ")
 
-
-def RepresentsInt(s):
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
