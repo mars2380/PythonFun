@@ -11,7 +11,7 @@ gameControl = True
 while gameControl:
     numEnter = (input("Enter a number: "))
     checkEnter = (input("Enter a number to divide by: "))
-    if numEnter or checkEnter == "q":
+    if type(numEnter) is not int:
         gameControl = False
         print("Game Over")
     else:
@@ -25,3 +25,16 @@ while gameControl:
                 print("However {0} is Even".format(num))
             else:
                 print("However {0} is Odd".format(num))
+
+
+gameControl = True
+while gameControl:
+    numEnter = (input("Enter a number: "))
+    checkEnter = (input("Enter a number to divide by: "))
+    try:
+        num = str(numEnter)
+        check = str(checkEnter)
+        gameControl = False
+        print("Game Over")
+    except ValueError:
+        print("again")
