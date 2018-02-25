@@ -490,6 +490,7 @@ To create a tab control, there are 3 steps to do so.
 - Add that tab to the tab control.
 - Pack the tab control so it becomes visible in the window.
 
+
     from tkinter import *
     from tkinter import ttk
     window = Tk()
