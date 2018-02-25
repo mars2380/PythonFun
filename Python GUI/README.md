@@ -10,6 +10,7 @@ We will start by creating a window then we will learn how to add widgets such as
 ### Create your first GUI application
 
 First, we will import Tkinter package and create a window and set its title:
+
     from tkinter import *
     window = Tk()
     window.title("Welcome to LikeGeeks app")
