@@ -18,3 +18,18 @@ First, we will import Tkinter package and create a window and set its title:
 
 The last line which calls mainloop function, this function calls the endless loop of the window, so the window will wait for any user interaction till we close it.
 If you forget to call the mainloop function, nothing will appear to the user.
+
+### Create a label widget
+To add a label to our previous example, we will create a label using the label class like this:
+
+    lbl = Label(window, text="Hello")
+    lbl.grid(column=0, row=0)
+
+    from tkinter import *
+    window = Tk()
+    window.title("Welcome to LikeGeeks app")
+    lbl = Label(window, text="Hello")
+    lbl.grid(column=0, row=0)
+    window.mainloop()
+
+Without calling the grid function for the label, it won’t show up.
