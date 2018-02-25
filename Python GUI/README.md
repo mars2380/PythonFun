@@ -298,7 +298,7 @@ To clear the contents of a scrolledtext widget, you can use delete method like t
 
     txt.delete(1.0,END)
 
-###Create a MessageBox
+### Create a MessageBox
 To show a message box using Tkinter, you can use messagebox library like this:
 
     from tkinter import messagebox
@@ -386,3 +386,152 @@ You can set the progress bar value like this:
 
 You can set this value based on any process you want like downloading a file or completing a task.
 
+### Change Progressbar color
+Changing Progressbar color is a bit tricky, but super easy.
+First, we will create a style and set the background color and finally set the created style to the Progressbar.
+Check the following example:
+
+    from tkinter import *
+    from tkinter.ttk import Progressbar
+    from tkinter import ttk
+    window = Tk()
+    window.title("Welcome to LikeGeeks app")
+    window.geometry('350x200')
+    style = ttk.Style()
+    style.theme_use('default')
+    style.configure("black.Horizontal.TProgressbar", background='black')
+    bar = Progressbar(window, length=200, style='black.Horizontal.TProgressbar')
+    bar['value'] = 70
+    bar.grid(column=0, row=0)
+    window.mainloop()
+
+### Add a filedialog (file & directory chooser)
+To create a file dialog (file chooser), you can use the filedialog class like this:
+
+    from tkinter import filedialog
+    file = filedialog.askopenfilename()
+
+After you choose a file and click open, the file variable will hold that file path.
+Also, you can ask for multiple files like this:
+
+    files = filedialog.askopenfilenames()
+
+### Specify file types (filter file extensions)
+You can specify the file types for a file dialog using filetypes parameter, just specify the extensions in tubles.
+
+    file = filedialog.askopenfilename(filetypes = (("Text files","*.txt"),("all files","*.*")))
+
+You can ask for a directory using askdirectory method:
+
+    dir = filedialog.askdirectory()
+
+You can specify the initial directory for the file dialog by specifying the initialdir like this:
+
+    from os import path
+    file = filedialog.askopenfilename(initialdir= path.dirname(__file__))
+
+### Add a Menu bar
+To add a menu bar, you can use menu class like this:
+
+    from tkinter import Menu
+    menu = Menu(window)
+    menu.add_command(label='File')
+    window.config(menu=menu)
+
+First, we create a menu, then we add our first label, and finally, we assign the menu to our window.
+You can add menu items under any menu by using add_cascade() function like this:
+
+    menu.add_cascade(label='File', menu=new_item)
+
+So our code will be like this:
+
+       from tkinter import *
+       from tkinter import Menu
+       window = Tk()
+       window.title("Welcome to LikeGeeks app")
+       menu = Menu(window)
+       new_item = Menu(menu)
+       new_item.add_command(label='New')
+       menu.add_cascade(label='File', menu=new_item)
+       window.config(menu=menu)
+       window.mainloop()
+
+Using this way, you can add many menu items as you want.
+
+    from tkinter import *
+    from tkinter import Menu
+    window = Tk()
+    window.title("Welcome to LikeGeeks app")
+    menu = Menu(window)
+    new_item = Menu(menu)
+    new_item.add_command(label='New')
+    new_item.add_separator()
+    new_item.add_command(label='Edit')
+    menu.add_cascade(label='File', menu=new_item)
+    window.config(menu=menu)
+    window.mainloop()
+
+Here we add another menu item called Edit with a menu separator.
+You may notice a dashed line at the beginning, well, if you click that line, it will show the menu items in a small separate window.
+You can disable this feature by disabling the tearoff feature like this:
+
+    new_item = Menu(menu, tearoff=0)
+
+Just replace the new_item in the above example with this one and it won’t show the dashed line anymore.
+I don’t need to remind you that you can type any code that works when the user clicks on any menu item by specifying the command property.
+
+    new_item.add_command(label='New', command=clicked)
+
+### Add a Notebook widget (tab control)
+To create a tab control, there are 3 steps to do so.
+
+- First, we create a tab control using Notebook class
+- Create a tab using Frame class.
+- Add that tab to the tab control.
+- Pack the tab control so it becomes visible in the window.
+
+    from tkinter import *
+    from tkinter import ttk
+    window = Tk()
+    window.title("Welcome to LikeGeeks app")
+    tab_control = ttk.Notebook(window)
+    tab1 = ttk.Frame(tab_control)
+    tab_control.add(tab1, text='First')
+    tab_control.pack(expand=1, fill='both')
+    window.mainloop()
+
+You can add many tabs as you want the same way.
+
+### Add widgets to Notebooks
+
+After creating tabs, you can put widgets inside these tabs by assigning the parent property to the desired tab.
+
+    from tkinter import *
+    from tkinter import ttk
+    window = Tk()
+    window.title("Welcome to LikeGeeks app")
+    tab_control = ttk.Notebook(window)
+    tab1 = ttk.Frame(tab_control)
+    tab2 = ttk.Frame(tab_control)
+    tab_control.add(tab1, text='First')
+    tab_control.add(tab2, text='Second')
+    lbl1 = Label(tab1, text= 'label1')
+    lbl1.grid(column=0, row=0)
+    lbl2 = Label(tab2, text= 'label2')
+    lbl2.grid(column=0, row=0)
+    tab_control.pack(expand=1, fill='both')
+    window.mainloop()
+
+### Add spacing for widgets (padding)
+
+You can add padding for your controls to make it looks well organized using padx and pady properties.
+Just pass padx and pady to any widget and give them a value.
+
+    lbl1 = Label(tab1, text= 'label1', padx=5, pady=5)
+
+Just that simple!!
+In this tutorial, we saw many Python GUI examples using Tkinter library and we saw how easy it’s to develop graphical interfaces using it.
+This tutorial covers main aspects of Python GUI development not all of them. There is no tutorial or a book can cover everything.
+I hope you find these examples useful. Keep coming back.
+
+Thank you.
