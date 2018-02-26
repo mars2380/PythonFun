@@ -7,6 +7,7 @@ Extras:
 If the number is a multiple of 4, print out a different message.
 Ask the user for two numbers: one number to check (call it num) and one number to divide by (check). If check divides evenly into num, tell that to the user. If not, print a different appropriate message.
 '''
+'''
 gameControl = True
 while gameControl:
     numEnter = (input("Enter a number: "))
@@ -25,8 +26,8 @@ while gameControl:
                 print("However {0} is Even".format(num))
             else:
                 print("However {0} is Odd".format(num))
-
-
+'''
+'''
 gameControl = True
 while gameControl:
     numEnter = (input("Enter a number: "))
@@ -38,5 +39,21 @@ while gameControl:
         print("Game Over")
     except ValueError:
         print("again")
+'''
 
-
+inp = input("Please enter a score: ")
+try:
+    if inp.type == str:
+        print("Bad score")
+    elif inp == 9:
+        print("A")
+    elif inp == 8:
+        print("B")
+    elif inp == 7:
+        print("C")
+    elif inp == 6:
+        print("D")
+    elif inp == 5:
+        print("F")
+except:
+    print("Bad scopre")
