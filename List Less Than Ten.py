@@ -1,4 +1,6 @@
 '''
+http://www.practicepython.org/exercise/2014/02/15/03-list-less-than-ten.html
+
 Take a list, say for example this one:
 
   a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
@@ -18,3 +20,7 @@ for element in a:
         print(element)
 
 print([i for i in a if i <= 5])
+
+num = int(input("Enter a number: "))
+
+print([i for i in a if i <= num])
